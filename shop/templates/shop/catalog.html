@@ -1,0 +1,32 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}Catalog{% endblock  %}
+{% block content %}
+    <main class="container d-flex mx-auto">
+        {% for product in products%}
+        <div class="card mx-auto mt-4" style="width: 25rem;">
+            <div class=" d-flex flex-column justify-content-between h-100">
+                <img src="{{product.image.url}}" class="card-img-top my-auto" alt="...">
+                <div class="p-2">
+                    <div class="cost d-flex">
+                    <h2 class="price">{{product.prise}} &#8381;</h2>
+                    <span class="discount text-danger fs-5"> {{product.discount}}%</span>
+                    </div>
+    
+                    <h5 class="card-title">{{product.title}}</h5>
+                    {% for star in "**********" %}
+                    {% if product.rating >= forloop.counter %}
+                    <img width="24" height="24" class="" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/>
+                    {% else %}
+                    <img width="24" height="24" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/ style="filter: grayscale(1)">
+                    {% endif %}
+                    {% endfor %}
+                    <a href="{% url 'product_detail' product_id=product.id%}" class="btn btn-outline-dark d-block mx-auto w-50 shadow-lg mt-3 mb-3">Купить</a>
+                    <span class="count text-secondary">В наличии : {{product.count}}</span>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+    </main>
+{% endblock %}
+</html>

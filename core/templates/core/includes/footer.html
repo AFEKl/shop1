@@ -1,0 +1,11 @@
+{% load static %}
+<footer class="header d-flex bg-darkgray pt-4 pb-3 flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+
+    <span class=" mx-auto mb-3 mb-md-0 text-body-white text-center">© 2024 Company, Inc</span>
+
+    <ul class="nav col-md-4 justify-content-end list-unstyled d-flex mx-auto">
+      <li class="ms-3"><a href="{%url 'main'%}" width="24" height="24"> <img src="{% static "shop/img/telegram.png" %}" alt="" width="32" height="32"></a></li>
+      <li class="ms-3"><a href="{%url 'main'%}" width="24" height="24"> <img src="{% static "shop/img/vk.png" %}" alt="" width="32" height="32"></a></li>
+      <li class="ms-3"><a href="{%url 'main'%}" width="24" height="24"> <img src="{% static "shop/img/twitter.png" %}" alt="" width="32" height="32"></a></li>
+    </ul>
+  </footer>

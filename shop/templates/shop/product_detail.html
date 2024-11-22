@@ -1,0 +1,51 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %}{{id_product.title}}{%endblock%}
+{% block content %}
+    <main>
+        <a href="{%url 'main'%}" class="btn btn-dark ms-5 position-absolute fw-bold"> &#8629; Назад</a>
+        <div class:"place d-flex flex-block m-4 d-block gap-5">
+            <div class="m-4 d-flex justify-content-center gap-5">
+                <img src="{{id_product.image.url}}" class="my-auto" alt="...">
+                <div class="text flex-block gap-5">
+                    <h1 class="mb-2"> {{id_product.title}} </h1>
+                    <h5 class="mb-4"> &#8226; В наличии: {{id_product.count}} шт.</h5>
+                    <div class="price d-flex flex-row">
+                        <a href="{% url 'order_create' product_id=id_product.id %}" class="btn btn-warning shadow-lg p-2 rounded-3 fw-bold fs-5">В корзину</a>
+                        <p class="my-auto ms-2 fs-5">{{id_product.prise}} &#8381;</p>
+                        {% if id_product.discount > 0 %}
+                        <span class="discount text-black fs-5 bg-warning rounded-5 text-center pe-2 ps-2 my-auto fw-bold ms-2" >-{{id_product.discount}}%</span>
+                        {% endif %}
+                    </div>
+                    {% for star in "**********" %}
+                    {% if id_product.rating >= forloop.counter %}
+                    <img width="24" height="24" class="mt-4" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/>
+                    {% else %}
+                    <img width="24" height="24" class="mt-4" src="https://img.icons8.com/fluency/48/star--v1.png" alt="star--v1"/ style="filter: grayscale(1)">
+                    {% endif %}
+                    {% endfor %}
+                    <div class="description_info d-flex flex-block">
+                        <div class="info_1 me-5">
+                            <p class="fw-bold mt-4 text-secondary">Производитель:</p>
+                            <p class="fw-bold mt-4 text-secondary">Тип:</p>
+                            <p class="fw-bold mt-4 text-secondary">Гарантия продавца/производителя:</p>
+                        </div>
+                        <div class="info_2 ms-5">
+                            <p class="fw-bold mt-4 text-secondary"> {{id_product.publisher}} </p>
+                            <p class="fw-bold mt-4 text-secondary"> {{id_product.tip}} </p>
+                            <p class="fw-bold mt-4 text-secondary"> {{id_product.Garanty}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="more w-75 mt-5 d-flex mx-auto ">
+                <h4 class="fw-bold text-light ">Подробнее :</h4>
+            </div>
+            <div class="description  w-75 m-2 d-flex text-center mx-auto justify-content-center ">
+                <p class="fw-bold text-secondary">{{id_product.description}} </p>
+            </div>
+        </div>
+    </main>
+{%endblock%}
+    </html>
+    

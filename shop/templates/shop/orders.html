@@ -1,0 +1,41 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block title %} Заказы {%endblock%}
+{% block content %}
+    <main>
+        <h1 class="text-center fw-bold">Ваш заказ:</h1>
+        <a href="{%url 'main'%}" class="btn btn-dark ms-5 position-absolute fw-bold mt-2"> &#8629; Назад</a>
+        <div class=" d-flex justify-content-center align-items-center gap-2 mt-2">
+            <div class="card w-75 " >
+                <div class="card-body" >
+                    {% for order in orders %}
+                    <div class="col-sm-6 d-block  mt-2 w-100 ">
+                        <div class="d-flex border border-lightgray border-2 rounded-3 p-2 my-auto">
+                            <div class="img my-auto">
+                                <img width="50" height="50" src="{{order.product.image.url}}" class="me-2" alt="...">
+                            </div>
+                            <div class="text ms-3 my-auto">
+                                <h5 class="card-title">{{order.product.title}}</h5>
+                                <div class="d-block">
+                                    <p class="text-secondary">Комментарий к товару: {{order.comment}}</p>
+                                    <p class="text-secondary"><img width="16" height="16" src="{% static "shop/img/address.png" %}" alt=""> : {{order.address}}</p>
+                                </div>
+                            </div>
+                            <div class="ms-auto d-flex my-auto gap-2">
+                                <div class="me-5 d-block mt-2">
+                                    <p class="text-secondary"><img width="16" height="16" src="{% static "shop/img/mail.png" %}" alt=""> : {{order.email}}</p>
+                                    <p class="text-secondary"><img width="16" height="16" src="{% static "shop/img/phone.png" %}" alt=""> : {{order.phone}}</p>
+                                </div>
+                                <div class="prise me-5 d-block mt-2">
+                                    <span class="price fs-5 fw-bold my-auto">{{order.product.prise}} &#8381;</span>
+                                    <p class="text-secondary ">Кол-во : {{order.count}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
