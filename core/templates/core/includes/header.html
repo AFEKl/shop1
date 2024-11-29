@@ -8,12 +8,14 @@
         <a href="{%url 'main'%}" class="header__text me-2 text-light btn">Отзывы</a>
         <a href="{%url 'orders'%}" class="header__text me-2 text-light btn">Заказы</a>
     </div>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 mx-auto" role="search">
-        <input type="search" class=" mx-auto form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-1 mx-auto" role="search">
+        <input type="search" class=" mx-auto form-control form-control-dark text-bg-dark " placeholder="Search..." aria-label="Search">
       </form>
   
       <div class="text-end mx-auto">
-        <button type="button" class="btn btn-outline-light me-2 mx-auto">Login</button>
-        <button type="button" class="btn btn-warning mx-aut0">Sign-up</button>
+        <a href="{%url 'main'%}" class="header__text me-2 text-light btn">Выйти</a>
+        <a href="{%url 'profile'%}" class="header__text me-2 text-light btn">Профиль</a>
+        <a href="{%url 'signin'%}" class="btn btn-outline-light me-2 mx-auto">Sign-in</a>
+        <a href="{%url 'signup'%}" class="btn btn-warning mx-aut0">Sign-up</a>
       </div>
 </div>
