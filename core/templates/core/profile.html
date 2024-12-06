@@ -7,8 +7,10 @@
         <img src="{%static 'shop/img/1.png'%}" alt="" class=" ms-5 border border-white rounded-4 border-2 " width="150" height="150">
     </div>
     <div class="text-white d-block">
-        <h1>Afek</h1>
-        <i class="text-secondary "> fwfwf</i>
+        <h1>{{request.COOKIES}}</h1>
+        <h1>{{request.user}}</h1>
+        <i class="text-secondary ">{{request.GET}}</i>
+        <p> status = {{request.user.is_authenticated}} </p>
     </div>
 </div>
 {% endblock %}
