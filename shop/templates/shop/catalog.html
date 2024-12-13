@@ -1,8 +1,9 @@
 {% extends "core/base.html" %}
 {% load static %}
+{%block link%}     <link rel="stylesheet" href="{% static "shop/css/style.css"%}">{%endblock %}
 {% block title %}Catalog{% endblock  %}
 {% block content %}
-    <main class="container d-flex mx-auto">
+    <main class="container-c d-flex mx-auto">
         {% for product in products%}
         <div class="card mx-auto mt-4" style="width: 25rem;">
             <div class=" d-flex flex-column justify-content-between h-100">

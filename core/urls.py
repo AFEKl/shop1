@@ -11,6 +11,8 @@ urlpatterns = [
     path('signup/', signup, name="signup"),
     path('signin/', signin, name="signin"),
     path('profile/', profile, name="profile"),
+    path('logout/', sign_out, name="logout"),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

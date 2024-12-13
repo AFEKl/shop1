@@ -1,5 +1,5 @@
 {% load static %}
-<div class="header d-flex bg-black pt-4 pb-3">
+<div class="headerr d-flex bg-black pt-4 pb-3">
     <div class="logo mx-auto">
         <a href="http://127.0.0.1:8000" class="btn rounded-4 logotip w-50"><img src="{%static 'shop/img/1.png'%}" class=" w-75"></a>
     </div>
@@ -8,17 +8,64 @@
         <a href="{%url 'main'%}" class="header__text me-2 text-light btn">Отзывы</a>
         <a href="{%url 'orders'%}" class="header__text me-2 text-light btn">Заказы</a>
     </div>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-1 mx-auto" role="search">
-        <input type="search" class=" mx-auto form-control form-control-dark text-bg-dark " placeholder="Search..." aria-label="Search">
-      </form>
+    <div id="poda">
+      <div class="glow"></div>
+      <div class="darkBorderBg"></div>
+      <div class="darkBorderBg"></div>
+      <div class="darkBorderBg"></div>
+    
+      <div class="white"></div>
+    
+      <div class="border"></div>
+    
+      <div id="main">
+        <input placeholder="Search..." type="text" name="text" class="input" />
+        <div id="input-mask"></div>
+        <div id="pink-mask"></div>
+        <div id="search-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            height="24"
+            fill="none"
+            class="feather feather-search"
+          >
+            <circle stroke="url(#search)" r="8" cy="11" cx="11"></circle>
+            <line
+              stroke="url(#searchl)"
+              y2="16.65"
+              y1="22"
+              x2="16.65"
+              x1="22"
+            ></line>
+            <defs>
+              <linearGradient gradientTransform="rotate(50)" id="search">
+                <stop stop-color="#f8e7f8" offset="0%"></stop>
+                <stop stop-color="#b6a9b7" offset="50%"></stop>
+              </linearGradient>
+              <linearGradient id="searchl">
+                <stop stop-color="#b6a9b7" offset="0%"></stop>
+                <stop stop-color="#837484" offset="50%"></stop>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </div>
   
-      <div class="text-end mx-auto">
+      <div class="text-end mx-auto d-flex">
         {% if request.user.is_authenticated%}
-          <a href="{%url 'main'%}" class="header__text me-2 text-light btn">Log out</a>
+          <a href="{%url 'logout'%}" class="header__text me-2 text-light btn">Log out</a>
           <a href="{%url 'profile'%}" class="header__text me-2 text-light btn">Profile</a>
-        {% else %}
-        <a href="{%url 'signin'%}" class="btn btn-outline-light me-2 mx-auto">Sign-in</a>
-        <a href="{%url 'signup'%}" class="btn btn-warning mx-aut0">Sign-up</a>
+          {% else %}
+          <a href="{%url 'signin'%}" class="btn btn-outline-light me-3 mx-auto ps-3 pe-3 my-auto">Sign-in</a>
+          <div class="container text-center">
+            <a href="{%url 'signup'%}" class="button text-decoration-none">Sign-up</a>
+          </div>
         {% endif %}
       </div>
 </div>
