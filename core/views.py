@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .models import *
+from shop.models import *
 
 
 def signin(request):
@@ -39,3 +40,31 @@ def sign_out(request):
 def profile(request):
 
     return render(request, "core/profile.html")
+
+def create_product(request):
+    if request.method == "POST":
+        p_name = request.POST["name"]
+        p_description = request.POST["description"]
+        p_price = request.POST["price"]
+        p_discount = request.POST["discount"]
+        p_count = request.POST["count"]
+        p_tip = request.POST["tip"]
+        p_garanty = request.POST["garanty"]
+        p_publisher = request.POST["publisher"]
+        p_image = request.POST["image"]
+        p_rating = request.POST["rating"]
+        Product.objects.create(
+            title=p_name,
+            description=p_description,
+            prise=p_price,
+            discount=p_discount,
+            count=p_count,
+            tip=p_tip,
+            Garanty=p_garanty,
+            publisher=p_publisher,
+            image = p_image,
+            rating = p_rating,
+        )
+        return redirect("main")
+
+    return render(request, "core/create_product.html")

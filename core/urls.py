@@ -12,6 +12,7 @@ urlpatterns = [
     path('signin/', signin, name="signin"),
     path('profile/', profile, name="profile"),
     path('logout/', sign_out, name="logout"),
+    path('create_product/', create_product, name="create_product"),
 
 ]
 if settings.DEBUG:

@@ -5,8 +5,10 @@
     </div>
     <div class="text_block mx-auto mt-2">
         <a href="{%url 'main'%}" class="otzivi me-5">Каталог</a>
-        <a href="{%url 'main'%}" class="otzivi me-5">Отзывы</a>
+        {% if request.user.is_superuser %}
+        <a href="{%url 'create_product'%}" class="otzivi me-5">Создать товар</a>
         <a href="{%url 'orders'%}" class="otzivi">Заказы</a>
+        {% endif %}
     </div>
     <div id="poda">
       <div class="glow"></div>
